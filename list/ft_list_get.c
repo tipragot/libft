@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_list_get.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:38:04 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/07 00:45:44 by tcezard          ###   ########.fr       */
+/*   Created: 2024/11/14 14:51:13 by tcezard           #+#    #+#             */
+/*   Updated: 2024/11/14 15:02:10 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	*ft_list_get(t_list *list, size_t index)
 {
-	char	chars[11];
-	int		i;
-	int		f;
+	size_t	i;
+	t_lnode	*current;
 
-	i = 10;
-	f = 1;
-	if (n < 0)
-		f = -1;
-	while (n != 0)
+	if (index >= list->len)
+		return (NULL);
+	i = 0;
+	if (index <= list->len / 2)
 	{
-		chars[i--] = (n % 10) * f + '0';
-		n /= 10;
+		current = list->first;
+		while (i < index)
+		{
+			current = current->next;
+			i++;
+		}
 	}
-	if (i == 10)
-		chars[i--] = '0';
-	if (f == -1)
-		chars[i--] = '-';
-	write(fd, &chars[i + 1], 10 - i);
+	else
+	{
+		index = list->len - index + 1;
+		while (i < index)
+		{
+			current = current->before;
+			i++;
+		}
+	}
+	return (current->content);
 }

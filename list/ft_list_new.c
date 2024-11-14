@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_list_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:37:28 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/07 00:45:29 by tcezard          ###   ########.fr       */
+/*   Created: 2024/11/14 14:46:01 by tcezard           #+#    #+#             */
+/*   Updated: 2024/11/14 14:50:12 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+t_list	*ft_list_new(void)
 {
-	write(fd, &c, 1);
+	return (ft_calloc(1, sizeof(t_list)));
 }
