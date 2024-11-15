@@ -6,13 +6,13 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:51:13 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/14 15:02:10 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/15 11:37:17 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	*ft_list_get(t_list *list, size_t index)
+t_lnode	*ft_list_get_node(t_list *list, size_t index)
 {
 	size_t	i;
 	t_lnode	*current;
@@ -38,5 +38,15 @@ void	*ft_list_get(t_list *list, size_t index)
 			i++;
 		}
 	}
-	return (current->content);
+	return (current);
+}
+
+void	*ft_list_get(t_list *list, size_t index)
+{
+	t_lnode	*node;
+
+	node = ft_list_get_node(list, index);
+	if (node)
+		return (node->content);
+	return (NULL);
 }

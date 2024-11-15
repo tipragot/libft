@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_list_iter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:40:31 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/07 00:40:52 by tcezard          ###   ########.fr       */
+/*   Created: 2024/11/15 12:25:01 by tcezard           #+#    #+#             */
+/*   Updated: 2024/11/15 12:27:42 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_list_iter(t_list *list, void (*visit)(void *))
 {
 	size_t	i;
-	size_t	j;
+	t_lnode	*current;
 
 	i = 0;
-	while (i < size && dst[i])
-		i++;
-	j = 0;
-	while (i + j + 1 < size && src[j])
+	current = list->first;
+	while (i < list->len)
 	{
-		dst[i + j] = src[j];
-		j++;
+		(*visit)(current->content);
+		current = current->next;
+		i++;
 	}
-	if (i + j < size)
-		dst[i + j] = '\0';
-	return (ft_strlen(src) + i);
 }

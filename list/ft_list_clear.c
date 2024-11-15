@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:42:44 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/07 00:42:55 by tcezard          ###   ########.fr       */
+/*   Created: 2024/11/15 12:25:50 by tcezard           #+#    #+#             */
+/*   Updated: 2024/11/15 12:27:15 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_list_clear(t_list *list, void (*free_content)(void *))
 {
 	size_t	i;
-	size_t	j;
+	t_lnode	*temp;
 
-	if (*little == '\0')
-		return ((char *)big);
 	i = 0;
-	while (i < len && big[i])
+	while (i < list->len)
 	{
-		j = 0;
-		while (i + j < len && big[i + j] == little[j] && big[i + j]
-			&& little[j])
-			j++;
-		if (little[j] == '\0')
-			return ((char *)big + i);
-		i++;
+		(*free_content)(list->first->content);
+		temp = list->first;
+		list->first = temp->next;
+		free(temp);
 	}
-	return (NULL);
+	list->len = 0;
 }

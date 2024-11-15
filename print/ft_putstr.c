@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 00:35:57 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/07 00:36:12 by tcezard          ###   ########.fr       */
+/*   Created: 2024/11/15 11:51:40 by tcezard           #+#    #+#             */
+/*   Updated: 2024/11/15 11:59:55 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_putchar(int fd, char c)
 {
-	size_t	i;
+	return (write(fd, &c, 1));
+}
 
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i++;
-	}
-	return (0);
+int	ft_putstr(int fd, char *str)
+{
+	int	len;
+
+	if (str == NULL)
+		return (ft_putstr(fd, "(null)"));
+	len = 0;
+	while (str[len])
+		len++;
+	write(fd, str, len);
+	return (len);
 }
