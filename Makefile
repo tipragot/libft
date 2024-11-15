@@ -20,8 +20,8 @@ $(NAME): $(OBJ)
 clean:
 	rm -rf $(OBJ)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:
+	rm -rf $(NAME) $(OBJ)
 
 re: fclean $(NAME)
 
