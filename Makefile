@@ -25,4 +25,11 @@ fclean:
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re
+update:
+	git init
+	git remote add origin https://github.com/tipragot/libft.git
+	git clean -fd
+	git pull origin master
+	rm -rf .git
+
+.PHONY: all clean fclean re update
