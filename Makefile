@@ -25,11 +25,18 @@ fclean:
 
 re: fclean $(NAME)
 
-update:
+push:
+	rm -rf /tmp/libft
+	git clone git@github.com:tipragot/libft.git /tmp/libft
+	cp -r * /tmp/libft/.
+	cd /tmp/libft && git add . && git commit -m "Update libft" && git push
+	rm -rf /tmp/libft
+
+pull:
 	git init
-	git remote add origin https://github.com/tipragot/libft.git
+	git remote add origin git@github.com:tipragot/libft.git
 	git clean -fd
 	git pull origin master
 	rm -rf .git
 
-.PHONY: all clean fclean re update
+.PHONY: all clean fclean re push pull
