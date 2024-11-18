@@ -25,7 +25,7 @@ fclean:
 
 re: fclean $(NAME)
 
-push:
+push: fclean
 	rm -rf /tmp/libft
 	git clone git@github.com:tipragot/libft.git /tmp/libft
 	cp -r * /tmp/libft/.
