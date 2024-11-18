@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:03:17 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/18 20:35:01 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/18 20:38:12 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_lnode
-{
-	void			*content;
-	struct s_lnode	*before;
-	struct s_lnode	*next;
-}					t_lnode;
-
 int					ft_putchar(int fd, char c);
 int					ft_putstr(int fd, char *str);
 int					ft_putnbr(int fd, int n);
@@ -33,6 +26,13 @@ int					ft_puthex(int fd, unsigned long long n, int uppercase);
 int					ft_putptr(int fd, void *ptr);
 int					ft_printf_fd(const int fd, const char *format, ...);
 int					ft_printf(const char *format, ...);
+
+typedef struct s_lnode
+{
+	void			*content;
+	struct s_lnode	*before;
+	struct s_lnode	*next;
+}					t_lnode;
 
 typedef struct s_list
 {
