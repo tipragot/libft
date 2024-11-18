@@ -6,14 +6,13 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:46:01 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/15 12:27:49 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/18 20:25:55 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <strings.h>
 
-t_list	*ft_list_new(void)
+t_list	*ft_list_new(void (*free_item)(void *))
 {
 	t_list	*new_list;
 
@@ -21,13 +20,14 @@ t_list	*ft_list_new(void)
 	if (!new_list)
 		return (NULL);
 	new_list->len = 0;
+	new_list->free_item = free_item;
 	return (new_list);
 }
 
-void	ft_list_free(t_list *list, void (*free_content)(void *))
+void	ft_list_free(t_list *list)
 {
 	if (!list)
 		return ;
-	ft_list_clear(list, free_content);
+	ft_list_clear(list);
 	free(list);
 }
