@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:03:17 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 10:00:06 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:40:33 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void				ft_list_clear(t_list *list);
 size_t				ft_list_len(t_list *list);
 t_lnode				*ft_list_get_node(t_list *list, size_t index);
 void				*ft_list_get(t_list *list, size_t index);
+int					ft_list_contains(t_list *list, void *item);
 int					ft_list_push_first(t_list *list, void *item);
 int					ft_list_push_last(t_list *list, void *item);
 int					ft_list_push_at(t_list *list, size_t index, void *item);

@@ -5,7 +5,7 @@ CC = cc
 SRC = print/ft_printf.c print/ft_putnbr.c print/ft_putstr.c \
       list/ft_list_get.c list/ft_list_len.c list/ft_list_new.c \
       list/ft_list_push.c list/ft_list_pop.c list/ft_list_rotate.c \
-      list/ft_list_clear.c list/ft_list_iter.c
+      list/ft_list_iter.c
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 

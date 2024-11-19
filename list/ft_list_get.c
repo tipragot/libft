@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:51:13 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 10:02:21 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:48:06 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,21 @@ void	*ft_list_get(t_list *list, size_t index)
 	if (node)
 		return (node->item);
 	return (NULL);
+}
+
+int	ft_list_contains(t_list *list, void *item)
+{
+	size_t	i;
+	t_lnode	*current;
+
+	i = 0;
+	current = list->first;
+	while (i < list->len)
+	{
+		if (current->item == item)
+			return (1);
+		current = current->after;
+		i++;
+	}
+	return (0);
 }
