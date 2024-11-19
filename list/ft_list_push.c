@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:02:30 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 10:07:05 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 11:20:17 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_push_first(t_list *list, void *item)
 	if (!new_node)
 	{
 		list->free_item(item);
-		return (1);
+		return (0);
 	}
 	new_node->item = item;
 	if (list->len == 0)
@@ -32,7 +32,7 @@ int	ft_push_first(t_list *list, void *item)
 	}
 	list->first = new_node;
 	list->len++;
-	return (0);
+	return (1);
 }
 
 int	ft_push_last(t_list *list, void *item)
@@ -43,7 +43,7 @@ int	ft_push_last(t_list *list, void *item)
 	if (!new_node)
 	{
 		list->free_item(item);
-		return (1);
+		return (0);
 	}
 	new_node->item = item;
 	if (list->len == 0)
@@ -55,7 +55,7 @@ int	ft_push_last(t_list *list, void *item)
 	}
 	list->last = new_node;
 	list->len++;
-	return (0);
+	return (1);
 }
 
 int	ft_push_at(t_list *list, size_t index, void *item)
@@ -64,7 +64,7 @@ int	ft_push_at(t_list *list, size_t index, void *item)
 	t_lnode	*next_node;
 
 	if (index > list->len)
-		return (1);
+		return (0);
 	else if (index == 0)
 		return (ft_push_first(list, item));
 	else if (index == list->len)
@@ -73,7 +73,7 @@ int	ft_push_at(t_list *list, size_t index, void *item)
 	if (!new_node)
 	{
 		list->free_item(item);
-		return (1);
+		return (0);
 	}
 	new_node->item = item;
 	next_node = ft_list_get_node(list, index);
@@ -81,5 +81,5 @@ int	ft_push_at(t_list *list, size_t index, void *item)
 	new_node->after = next_node;
 	next_node->before = new_node;
 	list->len++;
-	return (0);
+	return (1);
 }
