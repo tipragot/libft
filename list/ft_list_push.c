@@ -6,13 +6,13 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:02:30 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 11:20:17 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 11:30:58 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_push_first(t_list *list, void *item)
+int	ft_list_push_first(t_list *list, void *item)
 {
 	t_lnode	*new_node;
 
@@ -35,7 +35,7 @@ int	ft_push_first(t_list *list, void *item)
 	return (1);
 }
 
-int	ft_push_last(t_list *list, void *item)
+int	ft_list_push_last(t_list *list, void *item)
 {
 	t_lnode	*new_node;
 
@@ -58,7 +58,7 @@ int	ft_push_last(t_list *list, void *item)
 	return (1);
 }
 
-int	ft_push_at(t_list *list, size_t index, void *item)
+int	ft_list_push_at(t_list *list, size_t index, void *item)
 {
 	t_lnode	*new_node;
 	t_lnode	*next_node;
@@ -66,9 +66,9 @@ int	ft_push_at(t_list *list, size_t index, void *item)
 	if (index > list->len)
 		return (0);
 	else if (index == 0)
-		return (ft_push_first(list, item));
+		return (ft_list_push_first(list, item));
 	else if (index == list->len)
-		return (ft_push_last(list, item));
+		return (ft_list_push_last(list, item));
 	new_node = malloc(sizeof(t_lnode));
 	if (!new_node)
 	{
