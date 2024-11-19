@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 12:25:01 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/15 12:27:42 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:03:40 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_list_iter(t_list *list, void (*visit)(void *))
 	current = list->first;
 	while (i < list->len)
 	{
-		(*visit)(current->content);
-		current = current->next;
+		(*visit)(current->item);
+		current = current->after;
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:05:13 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/15 11:30:56 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:06:23 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_pop_first(t_list *list)
 	if (list->len == 0)
 		return (NULL);
 	first_node = list->first;
-	list->first = first_node->next;
-	content = first_node->content;
+	list->first = first_node->after;
+	content = first_node->item;
 	free(first_node);
 	list->len--;
 	return (content);
@@ -36,7 +36,7 @@ void	*ft_pop_last(t_list *list)
 		return (NULL);
 	last_node = list->last;
 	list->last = last_node->before;
-	content = last_node->content;
+	content = last_node->item;
 	free(last_node);
 	list->len--;
 	return (content);
@@ -54,9 +54,9 @@ void	*ft_pop_at(t_list *list, size_t index)
 	else if (index == list->len - 1)
 		return (ft_pop_last(list));
 	node = ft_list_get_node(list, index);
-	node->before->next = node->next;
-	node->next->before = node->before;
-	content = node->content;
+	node->before->after = node->after;
+	node->after->before = node->before;
+	content = node->item;
 	free(node);
 	list->len--;
 	return (content);

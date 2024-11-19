@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:03:17 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/18 20:38:12 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:00:06 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int					ft_printf(const char *format, ...);
 
 typedef struct s_lnode
 {
-	void			*content;
+	void			*item;
 	struct s_lnode	*before;
-	struct s_lnode	*next;
+	struct s_lnode	*after;
 }					t_lnode;
 
 typedef struct s_list
@@ -42,8 +42,8 @@ typedef struct s_list
 	void			(*free_item)(void *);
 }					t_list;
 
-t_list				*ft_list_new(void (*free_item)(void *));
-void				ft_list_free(t_list *list);
+t_list				ft_list_new(void (*free_item)(void *));
+void				ft_list_clear(t_list *list);
 size_t				ft_list_len(t_list *list);
 t_lnode				*ft_list_get_node(t_list *list, size_t index);
 void				*ft_list_get(t_list *list, size_t index);
@@ -56,6 +56,5 @@ void				*ft_list_pop_at(t_list *list, size_t index);
 void				ft_list_rotate_right(t_list *list);
 void				ft_list_rotate_left(t_list *list);
 void				ft_list_iter(t_list *list, void (*visit)(void *));
-void				ft_list_clear(t_list *list);
 
 #endif

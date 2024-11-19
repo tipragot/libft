@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:02:30 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/18 20:33:13 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:07:05 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	ft_push_first(t_list *list, void *item)
 		list->free_item(item);
 		return (1);
 	}
-	new_node->content = item;
+	new_node->item = item;
 	if (list->len == 0)
 		list->last = new_node;
 	else
 	{
 		list->first->before = new_node;
-		new_node->next = list->first;
+		new_node->after = list->first;
 	}
 	list->first = new_node;
 	list->len++;
@@ -45,12 +45,12 @@ int	ft_push_last(t_list *list, void *item)
 		list->free_item(item);
 		return (1);
 	}
-	new_node->content = item;
+	new_node->item = item;
 	if (list->len == 0)
 		list->first = new_node;
 	else
 	{
-		list->last->next = new_node;
+		list->last->after = new_node;
 		new_node->before = list->last;
 	}
 	list->last = new_node;
@@ -75,10 +75,10 @@ int	ft_push_at(t_list *list, size_t index, void *item)
 		list->free_item(item);
 		return (1);
 	}
-	new_node->content = item;
+	new_node->item = item;
 	next_node = ft_list_get_node(list, index);
 	new_node->before = next_node->before;
-	new_node->next = next_node;
+	new_node->after = next_node;
 	next_node->before = new_node;
 	list->len++;
 	return (0);

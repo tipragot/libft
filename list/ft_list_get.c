@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:51:13 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/15 11:37:17 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 10:02:21 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_lnode	*ft_list_get_node(t_list *list, size_t index)
 		current = list->first;
 		while (i < index)
 		{
-			current = current->next;
+			current = current->after;
 			i++;
 		}
 	}
@@ -47,6 +47,6 @@ void	*ft_list_get(t_list *list, size_t index)
 
 	node = ft_list_get_node(list, index);
 	if (node)
-		return (node->content);
+		return (node->item);
 	return (NULL);
 }
