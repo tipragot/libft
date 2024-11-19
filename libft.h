@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:03:17 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 10:40:33 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 14:42:34 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int					ft_putchar(int fd, char c);
 int					ft_putstr(int fd, char *str);
