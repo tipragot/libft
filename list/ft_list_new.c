@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:46:01 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 10:01:51 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/19 11:46:17 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_list_clear(t_list *list)
 		temp = list->first;
 		list->first = temp->after;
 		free(temp);
+		i++;
 	}
 	list->len = 0;
 }
