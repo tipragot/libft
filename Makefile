@@ -6,7 +6,9 @@ SRC = str/ft_strcmp.c \
       print/ft_printf.c print/ft_putnbr.c print/ft_putstr.c \
       list/ft_list_get.c list/ft_list_len.c list/ft_list_new.c \
       list/ft_list_push.c list/ft_list_pop.c list/ft_list_rotate.c \
-      list/ft_list_iter.c list/ft_list_move.c
+      list/ft_list_iter.c list/ft_list_move.c \
+	  vec/ft_vec_new.c vec/ft_vec_op.c vec/ft_vec_op_f.c vec/ft_vec_len.c \
+	  mat/ft_mat_base.c mat/ft_mat_op.c mat/ft_mat_project.c
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 
