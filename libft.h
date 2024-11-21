@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:03:17 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/20 20:47:13 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:56:21 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,25 @@ void				ft_list_rotate_right(t_list *list);
 void				ft_list_rotate_left(t_list *list);
 void				ft_list_iter(t_list *list, void (*visit)(void *));
 
-typedef struct s_mat4
+typedef struct s_vec2
 {
-	float			m[4][4];
-}					t_mat4;
+	float			x;
+	float			y;
+}					t_vec2;
+
+t_vec2				ft_vec2_new(float x, float y);
+float				ft_vec2_square_len(t_vec2 vec);
+float				ft_vec2_len(t_vec2 vec);
+t_vec2				ft_vec2_normalize(t_vec2 vec);
+t_vec2				ft_vec2_add(t_vec2 a, t_vec2 b);
+t_vec2				ft_vec2_sub(t_vec2 a, t_vec2 b);
+t_vec2				ft_vec2_mul(t_vec2 a, t_vec2 b);
+t_vec2				ft_vec2_div(t_vec2 a, t_vec2 b);
+t_vec2				ft_vec2_addf(t_vec2 a, float b);
+t_vec2				ft_vec2_subf(t_vec2 a, float b);
+t_vec2				ft_vec2_mulf(t_vec2 a, float b);
+t_vec2				ft_vec2_divf(t_vec2 a, float b);
+t_vec2				ft_vec2_lerp(t_vec2 a, t_vec2 b, float t);
 
 typedef struct s_vec3
 {
@@ -73,19 +88,6 @@ typedef struct s_vec3
 	float			y;
 	float			z;
 }					t_vec3;
-
-t_mat4				ft_mat_identity(void);
-t_mat4				ft_mat_perspective(float fov, float aspect, float near,
-						float far);
-t_mat4				ft_mat_ortho(float width, float height, float near,
-						float far);
-t_mat4				ft_mat_translation(t_vec3 translation);
-t_mat4				ft_mat_rotation_x(float angle);
-t_mat4				ft_mat_rotation_y(float angle);
-t_mat4				ft_mat_rotation_z(float angle);
-t_mat4				ft_mat_scale(t_vec3 scale);
-t_mat4				ft_mat_mul(t_mat4 a, t_mat4 b);
-t_vec3				ft_mat_apply(t_mat4 mat, t_vec3 vec);
 
 t_vec3				ft_vec3_new(float x, float y, float z);
 float				ft_vec3_square_len(t_vec3 vec);
@@ -99,5 +101,24 @@ t_vec3				ft_vec3_addf(t_vec3 a, float b);
 t_vec3				ft_vec3_subf(t_vec3 a, float b);
 t_vec3				ft_vec3_mulf(t_vec3 a, float b);
 t_vec3				ft_vec3_divf(t_vec3 a, float b);
+t_vec3				ft_vec3_lerp(t_vec3 a, t_vec3 b, float t);
+
+typedef struct s_mat4
+{
+	float			m[4][4];
+}					t_mat4;
+
+t_mat4				ft_mat_identity(void);
+t_mat4				ft_mat_perspective(float fov, float aspect, float near,
+						float far);
+t_mat4				ft_mat_ortho(float width, float height, float near,
+						float far);
+t_mat4				ft_mat_translation(t_vec3 translation);
+t_mat4				ft_mat_rotation_x(float angle);
+t_mat4				ft_mat_rotation_y(float angle);
+t_mat4				ft_mat_rotation_z(float angle);
+t_mat4				ft_mat_scale(t_vec3 scale);
+t_mat4				ft_mat_mul(t_mat4 a, t_mat4 b);
+t_vec3				ft_mat_apply(t_mat4 mat, t_vec3 vec);
 
 #endif

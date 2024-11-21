@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:32:29 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/20 20:44:31 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:56:53 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_mat4	ft_mat_mul(t_mat4 a, t_mat4 b)
 t_vec3	ft_mat_apply(t_mat4 mat, t_vec3 vec)
 {
 	t_vec3	result;
+	float	w;
 
 	result.x = mat.m[0][0] * vec.x + mat.m[0][1] * vec.y + mat.m[0][2] * vec.z
 		+ mat.m[0][3];
@@ -69,5 +70,7 @@ t_vec3	ft_mat_apply(t_mat4 mat, t_vec3 vec)
 		+ mat.m[1][3];
 	result.z = mat.m[2][0] * vec.x + mat.m[2][1] * vec.y + mat.m[2][2] * vec.z
 		+ mat.m[2][3];
-	return (result);
+	w = mat.m[3][0] * vec.x + mat.m[3][1] * vec.y + mat.m[3][2] * vec.z
+		+ mat.m[3][3];
+	return (ft_vec3_divf(result, w));
 }

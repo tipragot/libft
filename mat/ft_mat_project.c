@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:32:29 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/20 20:43:35 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/11/20 21:57:17 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_mat4	ft_mat_perspective(float fov, float aspect, float near, float far)
 	result = ft_mat_identity();
 	result.m[0][0] = 1.0 / (aspect * tanf(fov / 2.0));
 	result.m[1][1] = 1.0 / tanf(fov / 2.0);
-	result.m[2][2] = -(far / (far - near));
+	result.m[2][2] = far / (far - near);
 	result.m[2][3] = -(far * near) / (far - near);
 	result.m[3][2] = 1.0;
 	result.m[3][3] = 0.0;
