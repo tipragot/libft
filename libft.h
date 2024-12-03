@@ -6,7 +6,7 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:03:17 by tcezard           #+#    #+#             */
-/*   Updated: 2024/12/03 11:08:20 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/12/03 13:24:40 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void				*ft_list_pop_at(t_list *list, size_t index);
 void				ft_list_rotate_right(t_list *list);
 void				ft_list_rotate_left(t_list *list);
 void				ft_list_iter(t_list *list, void (*visit)(void *));
+void				ft_list_move(t_list *from, size_t from_index, t_list *to,
+						size_t to_index);
 
 #endif

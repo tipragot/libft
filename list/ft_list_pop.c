@@ -6,13 +6,13 @@
 /*   By: tcezard <tcezard@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:05:13 by tcezard           #+#    #+#             */
-/*   Updated: 2024/11/19 10:06:23 by tcezard          ###   ########.fr       */
+/*   Updated: 2024/12/03 17:01:07 by tcezard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	*ft_pop_first(t_list *list)
+void	*ft_list_pop_first(t_list *list)
 {
 	t_lnode	*first_node;
 	void	*content;
@@ -27,7 +27,7 @@ void	*ft_pop_first(t_list *list)
 	return (content);
 }
 
-void	*ft_pop_last(t_list *list)
+void	*ft_list_pop_last(t_list *list)
 {
 	t_lnode	*last_node;
 	void	*content;
@@ -42,7 +42,7 @@ void	*ft_pop_last(t_list *list)
 	return (content);
 }
 
-void	*ft_pop_at(t_list *list, size_t index)
+void	*ft_list_pop_at(t_list *list, size_t index)
 {
 	t_lnode	*node;
 	void	*content;
@@ -50,9 +50,9 @@ void	*ft_pop_at(t_list *list, size_t index)
 	if (index >= list->len)
 		return (NULL);
 	else if (index == 0)
-		return (ft_pop_first(list));
+		return (ft_list_pop_first(list));
 	else if (index == list->len - 1)
-		return (ft_pop_last(list));
+		return (ft_list_pop_last(list));
 	node = ft_list_get_node(list, index);
 	node->before->after = node->after;
 	node->after->before = node->before;

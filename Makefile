@@ -1,4 +1,5 @@
 CFLAGS = -Wall -Werror -Wextra
+DEBUG_CFLAGS = -Wall -Werror -Wextra -g
 AR = ar
 CC = cc
 
@@ -18,6 +19,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) rcs $(NAME) $(OBJ)
+
+debug: CFLAGS = $(DEBUG_CFLAGS)
+debug: $(NAME)
 
 clean:
 	rm -rf $(OBJ)
@@ -41,4 +45,4 @@ pull:
 	git pull origin master
 	rm -rf .git
 
-.PHONY: all clean fclean re push pull
+.PHONY: all debug clean fclean re push pull
