@@ -34,6 +34,7 @@ re: fclean $(NAME)
 push: fclean
 	rm -rf /tmp/libft
 	git clone git@github.com:tipragot/libft.git /tmp/libft
+	find /tmp/libft -mindepth 1 -not -path '/tmp/libft/.git*' -delete
 	cp -r * /tmp/libft/.
 	cd /tmp/libft && git add . && git commit -m "Update libft" && git push
 	rm -rf /tmp/libft
